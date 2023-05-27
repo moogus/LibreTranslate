@@ -158,7 +158,7 @@ _default_options_objects = [
     },
     {
         'name': 'DISABLE_FILES_TRANSLATION',
-        'default_value': False,
+        'default_value': True,
         'value_type': 'bool'
     },
     {
@@ -168,7 +168,7 @@ _default_options_objects = [
     },
     {
         'name': 'UPDATE_MODELS',
-        'default_value': False,
+        'default_value': True,
         'value_type': 'bool'
     },    
     {
