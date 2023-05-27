@@ -349,6 +349,7 @@ You can use the LibreTranslate API using the following bindings:
 
 You can use this [discourse translator plugin](https://github.com/LibreTranslate/discourse-translator) to translate [Discourse](https://discourse.org) topics. To install it simply modify `/var/discourse/containers/app.yml`:
 
+
 ```yaml
 ## Plugins go here
 ## see https://meta.discourse.org/t/19157 for details
