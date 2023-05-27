@@ -22,7 +22,7 @@ usage(){
   exit
 }
 
-export LT_PORT=5000
+export LT_PORT=8080
 
 # Parse args for overrides
 ARGS=()
@@ -89,4 +89,4 @@ environment_check(){
 }
 
 environment_check
-docker run -ti --rm -p $LT_PORT:$LT_PORT $DB_VOLUME -v lt-local:/home/libretranslate/.local libretranslate/libretranslate ${ARGS[@]}
+docker run -ti --rm -p 0.0.0.0$LT_PORT:$LT_PORT $DB_VOLUME -v lt-local:/home/libretranslate/.local libretranslate/libretranslate ${ARGS[@]}

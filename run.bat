@@ -2,7 +2,7 @@
 
 SETLOCAL
 
-SET LT_PORT=5000
+SET LT_PORT=8080
 
 :loop
 IF NOT "%1"=="" (
@@ -28,7 +28,7 @@ IF NOT "%1"=="" (
 WHERE /Q docker
 IF %ERRORLEVEL% NEQ 0 GOTO :install_docker
 
-docker run -ti --rm -p %LT_PORT%:%LT_PORT% %DB_VOLUME% -v lt-local:/home/libretranslate/.local libretranslate/libretranslate %*
+docker run -ti --rm -p 0.0.0.0%LT_PORT%:%LT_PORT% %DB_VOLUME% -v lt-local:/home/libretranslate/.local libretranslate/libretranslate %*
 
 GOTO :done
 

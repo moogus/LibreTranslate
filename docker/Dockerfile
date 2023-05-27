@@ -5,11 +5,12 @@ WORKDIR /app
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update -qq \
   && apt-get -qqq install --no-install-recommends -y pkg-config gcc g++ \
-  && apt-get upgrade --assume-yes \
   && apt-get clean \
   && rm -rf /var/lib/apt
 
-RUN python -mvenv venv && ./venv/bin/pip install --no-cache-dir --upgrade pip
+RUN apt-get update && apt-get upgrade --assume-yes
+
+RUN python -mvenv venv && ./venv/bin/pip install --upgrade pip
 
 COPY . .
 
@@ -39,5 +40,5 @@ RUN if [ "$with_models" = "true" ]; then  \
   fi \
   fi
 
-EXPOSE 5000
+EXPOSE 8080
 ENTRYPOINT [ "./venv/bin/libretranslate", "--host", "0.0.0.0" ]
